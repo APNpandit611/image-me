@@ -57,7 +57,7 @@ const CreatePost = () => {
             try {
                 setGeneratingImg(true);
                 const response = await axios.post(
-                    "http://localhost:8080/api/image",
+                    "https://image-me-one.vercel.app/api/image",
                     { prompt: form.prompt },
                     {
                         headers: {
@@ -90,7 +90,7 @@ const CreatePost = () => {
             try {
                 setLoading(true);
                 const response = await axios.post(
-                    "http://localhost:8080/api/post",
+                    "https://image-me-one.vercel.app/api/post",
                     { ...form },
                     {
                         headers: {
