@@ -19,17 +19,17 @@ router.route("/").post(async (req, res) => {
         const { prompt } = req.body;
         if (!prompt) {
             return res.status(400).json({ error: "Prompt is required" });
-        } 
+        }
 
         const completion = await openai.chat.completions.create({
-            model: "openai/gpt-5-image-mini",
+            model: "nvidia/nemotron-nano-12b-v2-vl:free",
             messages: [
                 {
                     role: "user",
                     content: [
                         {
                             type: "text",
-                            text: prompt,
+                            text: "What is in this  and image?",
                         },
                         {
                             type: "image_url",
