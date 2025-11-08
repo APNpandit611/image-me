@@ -6,9 +6,12 @@ import { GoogleGenAI } from "@google/genai";
 dotenv.config();
 
 const router = express.Router();
+
 const openai = new OpenAI({
-    apiKey: process.env.OPEN_ROUTER_API,
     baseURL: "https://openrouter.ai/api/v1",
+    // apiKey: process.env.NEXT_OPENAI_API_KEY,
+    apiKey: process.env.NEXT_PUBLIC_OPENAI_API_KEY,
+    dangerouslyAllowBrowser: true,
 });
 // const genAi = new GoogleGenAI({
 //     apiKey: process.env.GEM_API_KEY,
