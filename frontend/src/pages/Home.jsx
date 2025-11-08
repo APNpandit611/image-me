@@ -15,6 +15,7 @@ const RenderCards = ({ data, title }) => {
     );
 };
 
+
 const Home = () => {
     const [loading, setLoading] = useState(false);
     const [allPosts, setAllPosts] = useState(null);
@@ -27,7 +28,7 @@ const Home = () => {
         setLoading(true);
 
         try {
-            const response = await fetch("https://image-me-one.vercel.app/api/post", {
+            const response = await fetch(`${import.meta.env.VITE_SERVER_LOCAL_ROUTE}/api/post`, {
                 method: "GET",
                 headers: {
                     "Content-Type": "application/json",

@@ -57,7 +57,7 @@ const CreatePost = () => {
             try {
                 setGeneratingImg(true);
                 const response = await axios.post(
-                    "https://image-me-one.vercel.app/api/image",
+                    `${import.meta.env.VITE_SERVER_LOCAL_ROUTE}/api/image`,
                     { prompt: form.prompt },
                     {
                         headers: {
@@ -90,7 +90,7 @@ const CreatePost = () => {
             try {
                 setLoading(true);
                 const response = await axios.post(
-                    "https://image-me-one.vercel.app/api/post",
+                    `${import.meta.env.VITE_SERVER_LOCAL_ROUTE}/api/post`,
                     { ...form },
                     {
                         headers: {

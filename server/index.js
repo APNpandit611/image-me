@@ -6,10 +6,10 @@ import postRoutes from "./routes/postRoutes.js";
 import imageRoutes from "./routes/imageRoutes.js"
 
 dotenv.config();
-
+// https://image-me.netlify.app
 const app = express();
 const corOption = {
-    origin: ["http://localhost:5173","https://image-me.netlify.app"],
+    origin: process.env.CLIENT_LOCAL_ROUTE,
     credentials: true,
 };
 app.use(cors(corOption));

@@ -10,7 +10,7 @@ const router = express.Router();
 const openai = new OpenAI({
     baseURL: "https://openrouter.ai/api/v1",
     // apiKey: process.env.NEXT_OPENAI_API_KEY,
-    apiKey: process.env.NEXT_PUBLIC_OPENAI_API_KEY,
+    apiKey: process.env.OPENAI_API_KEY,
     dangerouslyAllowBrowser: true,
 });
 // const genAi = new GoogleGenAI({
@@ -32,7 +32,7 @@ router.route("/").post(async (req, res) => {
                     content: [
                         {
                             type: "text",
-                            text: "What is in this  and image?",
+                            text: prompt,
                         },
                         {
                             type: "image_url",
@@ -45,9 +45,12 @@ router.route("/").post(async (req, res) => {
             ],
         });
 
-        // console.log(completion.choices[0].message);
+        console.log(completion.choices[0].message);
         const imageUrl =
             completion.choices?.[0]?.message?.images?.[0]?.image_url?.url;
+        
+
+
 
         if (imageUrl) {
             res.status(200).json({ photo: imageUrl });
