@@ -9,7 +9,7 @@ dotenv.config();
 // https://image-me.netlify.app
 const app = express();
 const corOption = {
-    origin: process.env.CLIENT_LOCAL_ROUTE,
+    origin: ['https://image-me.netlify.app'],
     credentials: true,
 };
 app.use(cors(corOption));
