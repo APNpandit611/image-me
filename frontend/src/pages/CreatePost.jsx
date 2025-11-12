@@ -57,7 +57,7 @@ const CreatePost = () => {
             try {
                 setGeneratingImg(true);
                 const response = await axios.post(
-                    "https://image-80swbwl7t-apnpandit611s-projects.vercel.app/api/image",
+                    "https://image-me-one.vercel.app/api/image",
                     { prompt: form.prompt },
                     {
                         headers: {
