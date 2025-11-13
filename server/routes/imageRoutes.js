@@ -25,14 +25,14 @@ router.route("/").post(async (req, res) => {
         }
 
         const completion = await openai.chat.completions.create({
-            model: "nvidia/nemotron-nano-12b-v2-vl:free",
+            model: "google/gemini-2.5-flash-image",
             messages: [
                 {
                     role: "user",
                     content: [
                         {
                             type: "text",
-                            text: prompt,
+                            text: "What is in this  and image?",
                         },
                         {
                             type: "image_url",
@@ -48,9 +48,6 @@ router.route("/").post(async (req, res) => {
         console.log(completion.choices[0].message);
         const imageUrl =
             completion.choices?.[0]?.message?.images?.[0]?.image_url?.url;
-        
-
-
 
         if (imageUrl) {
             res.status(200).json({ photo: imageUrl });
