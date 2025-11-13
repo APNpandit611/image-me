@@ -73,8 +73,8 @@ const CreatePost = () => {
                     photo:data.photo,
                 });
             } catch (err) {
-                console.error(err);
-                alert("Failed to generate image");
+                console.error(err.response.data.error);
+                alert(err.response?.data?.error);
             } finally {
                 setGeneratingImg(false);
             }
