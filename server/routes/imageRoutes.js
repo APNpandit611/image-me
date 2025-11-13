@@ -11,8 +11,9 @@ const openai = new OpenAI({
     baseURL: "https://openrouter.ai/api/v1",
     // apiKey: process.env.NEXT_OPENAI_API_KEY,
     apiKey: process.env.OPEN_ROUTER_API,
-    
 });
+
+console.log(process.env.OPEN_ROUTER_API)
 // const genAi = new GoogleGenAI({
 //     apiKey: process.env.GEM_API_KEY,
 // });
@@ -116,12 +117,9 @@ router.route("/").post(async (req, res) => {
         //     res.status(400).json({ error: "Model did not return an image." });
         // }
     } catch (error) {
-        console.error(error);
         res.status(500).json({
             error:
-                error?.response?.data?.error?.message ||
-                error.message ||
-                "Internal Server Error",
+                error.message
         });
     }
 });
