@@ -32,7 +32,7 @@ router.route("/").post(async (req, res) => {
                     content: [
                         {
                             type: "text",
-                            text: "What is in this  and image?",
+                            text: prompt,
                         },
                         {
                             type: "image_url",
